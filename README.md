@@ -2,7 +2,7 @@
 ![screenshot](https://pp.userapi.com/c849416/v849416003/dc39a/luZjOyp1dgg.jpg)
 
 ## Features
-Different modes
+**Different modes**:
 - Classic - field 10x20, low speed, no bonus
 - New - field 12x25, normal speed, with bonus
 - Hard - field 13x25, high speed, with bonus 
