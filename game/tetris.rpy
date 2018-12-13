@@ -19,8 +19,6 @@ init -100:
         $ persistent.highscore = []
 
 init python:
-    korobushka = 'gui/korobushka.mp3'
-
     # Tetromino Symbols
     symb_field = '·'
     symb_red = 'R'
@@ -655,9 +653,6 @@ screen game_over():
     textbutton 'RETRY' action Hide('game_over'), Jump('tetris_reload') align .5,.9
 
 label tetris_start:
-    play music korobushka
-    $ renpy.music.set_volume(0.3, channel='music')
-
     call screen difficulty_choice
 
     $ tetris = Tetris(speed=speed, mode=mode, level=level, bonus=0)
