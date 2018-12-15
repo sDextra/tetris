@@ -574,7 +574,6 @@ screen draw_tetris():
 
         vbox align vboxalign xsize 140:
             text 'NEXT:' xanchor 1.0
-            # text '%s'%(draw_next([1,1,1,1, 0,0,0,0])) xanchor 1.0
             text '%s'%(draw_next(tetris.next)) xanchor 1.0
             
             null height 60
