@@ -61,6 +61,7 @@ init python:
             self.level = level
             self.start_speed = speed
             self.speed = self.start_speed
+            self.can_skip = True
             self.end = False
 
         def delete_I(self):
@@ -255,6 +256,7 @@ init python:
                 k += 1
 
         def skip(self):
+            self.can_skip = False
             for c in range(column):
                 s = self.check_let_for_skip(offset=row*c)
                 if s:
@@ -263,6 +265,9 @@ init python:
             self.active = s
             self.draw_tetromino()
             self.end_turn()
+
+        def can_skip_reload(self):
+            self.can_skip = True
 
         def tetromino_index_start(self):
             l = len(self.tetromino)
@@ -604,7 +609,11 @@ screen draw_tetris():
 
     # PC
     else:
-        key 'K_RETURN' action Function(tetris.skip)
+        if tetris.can_skip:
+            key 'K_RETURN' action Function(tetris.skip)
+        else:
+            timer .2 action Function(tetris.can_skip_reload)
+            
         if tetris.can_rotation:
             key 'mousedown_1' action Function(tetris.rotation)
             key 'K_UP' action Function(tetris.rotation)
